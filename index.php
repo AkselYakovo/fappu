@@ -35,7 +35,7 @@ $websites_listing = $main_conn->query($websites_listing_query);
     <meta name="description" content="Compra Tus Cuentas Porno A Un Increible Precio!">
     <script src="./js/carrousel.js" defer="defer" type="module"></script>
     <link rel="stylesheet" href="./style.css">
-    <title>F  ||  ¡Cuentas XxX Premium!</title>
+    <title>Fappu | Cuentas de Streaming Premium</title>
 </head>
 <body>
     <header class="header">
