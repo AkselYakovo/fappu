@@ -1,8 +1,5 @@
 
-
-
 export function checkScreens(collection, nodeViewport) {
-    // console.log('...');
     let parent = nodeViewport.getBoundingClientRect();
     // let offset = 0.25;
     collection.forEach( node => {
@@ -25,7 +22,7 @@ export function setCard(node) {
     let phaseControls = node.querySelectorAll('.content__slidder');
     node.phase = 0; // Initial Phase.
 
-    // Phases Handler.
+    // Carrousel Phases Handler.
     phaseControls.forEach( phaseNode => {
         phaseNode.addEventListener('click', function(e) {
             switch (node.phase) {
@@ -42,6 +39,7 @@ export function setCard(node) {
                     node.classList.toggle('card--second-phase');
                     node.phase = 0;
                     break;
+
                 default:
                     console.error('Something Went Broken In Card Component.');
                     break;
@@ -50,7 +48,7 @@ export function setCard(node) {
         });
     });
 
-    //Buy Button Handler.
+    // Buy Button Handler.
     let buyButton = node.querySelector('.content__buybutton');
     buyButton.addEventListener('click', function(e) {
         let disabled = this.classList.contains('button--disabled');
@@ -59,7 +57,8 @@ export function setCard(node) {
             let siteTitle = node.getAttribute('data-display') || 'none';
             let teaseModal = document.querySelector('#modal');
             let teasePicture = `../fappu_admin/assets/teasepics/${siteTitle}.jpg`;
-            teaseModal.classList.toggle('modal--visible');
+            teaseModal.classList.add('modal--visible');
+            teaseModal.classList.remove('modal--hide');
             teaseModal.style.backgroundImage = `url(${teasePicture})`;
             teaseModal.querySelector('.website').innerHTML = siteTitle;
         }
@@ -103,14 +102,13 @@ export function setCard(node) {
 
     // Parent Element And Available Viewport.
     let screensWrap = node.querySelector('.subsites__screens'); // Screens Strip.
-    let screensViewport = node.querySelector('.card__subsites').offsetWidth;
+    let screensViewport = node.querySelector('.card__subsites');
     let screensCollection = node.querySelectorAll('.subsites__screen');
-        screensCollection.forEach( node => node.active = false );
+    //screensCollection.forEach( node => node.active = false );
+
 
     // ~ Screens Drag Functionality ~
     screensWrap.addEventListener('mousedown', function(event) {
-        // console.log(event);
-        
         let actualPos = {
             X: event.pageX,
             Y: event.pageY
@@ -119,8 +117,9 @@ export function setCard(node) {
         actualPos.translate = ( /translateX/i.test(this.style.transform) ) 
                               ? transformString.replace(/^((?!translateX\(-?\d{1,5}px\)).)*$/g, '')
                               : 'translateX(0px)';
+        // Extract Integer out of the 'Translate' css property.
         let initial = Number.parseInt(actualPos.translate.replace(/(?!-?\d)./g, ''));
-        let totalPath = screensWrap.offsetWidth - screensViewport;
+        let totalPath = screensWrap.offsetWidth - screensViewport.offsetWidth;
         
         document.onmousemove =  function(e) {
             let newPos = {
@@ -129,9 +128,11 @@ export function setCard(node) {
             };
             let finalPos =  -( newPos.X - initial );
             
+            // Screen's Wrap is on initial position.
             if ( finalPos >= 0 ) {
                 screensWrap.style.transform = `translateX(0)px`;    
             }
+            // Screen's Wrap is gliding.
             else if ( -(finalPos) >= totalPath ) {
                 screensWrap.style.transform = `translateX(${ -totalPath }px)`;
             }
