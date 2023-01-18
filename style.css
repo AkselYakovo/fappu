@@ -111,6 +111,16 @@ hr {
     opacity: 1;
   }
 }
+@keyframes hide-modal {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 html {
   background-color: #FCFCFC;
 }
@@ -1076,6 +1086,13 @@ Modifiers of Card component.
 .modal .modal__content form button {
   display: block;
   margin: 0 auto;
+}
+
+.modal--hide {
+  visibility: hidden;
+  animation-name: hide-modal;
+  animation-duration: 200ms;
+  animation-timing-function: ease-out;
 }
 
 .modal--visible {
