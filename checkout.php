@@ -6,8 +6,10 @@ $website = clean_txt($website);
 
 $website_info_query = "SELECT * FROM _WEBSITES WHERE `SITE_CODE` = '$website'";
 $results = $main_conn->query($website_info_query);
-$website_info;
+$website_info = $results->fetch_assoc();
 ?>
+
+
 
 
 
@@ -21,8 +23,9 @@ $website_info;
         <?php echo htmlentities("PREPARANDO COMPRA: <<$website>>") ?>
     </title>
     <?php
-        if ( $website_info != NULL ) {
-            $website_info = $results->fetch_assoc();
+        if ( $website_info ) {
+            // $website_info = $results->fetch_assoc();
+            print_r($website_info);
         }
 
         else {
@@ -30,12 +33,13 @@ $website_info;
                 <script type="text/javascript">
                     window.close();
                     setTimeout( function() {
-                        location = "https://www.example.com";
+                        // location = history.back();
+                        history.back();
                     }, 1250 );
                 </script>';
         } ?>
 </head>
 <body>
-    <?php echo $website_info['SITE_CODE'] ?>
+    <!-- Body -->
 </body>
 </html>
