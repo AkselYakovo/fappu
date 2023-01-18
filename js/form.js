@@ -1,4 +1,4 @@
-
+// index.php coding part.
 if ( document.querySelector('.toolbar__search input') ) {
     let toolbar = document.querySelector('.toolbar__search input')
     toolbar.addEventListener('focus', (event) => {
