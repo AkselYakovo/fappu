@@ -8,3 +8,15 @@
     }
     
 }
+
+@keyframes hide-modal {
+    from {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
