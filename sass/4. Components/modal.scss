@@ -115,10 +115,18 @@
 }
 
 
+.modal--hide {
+    visibility: hidden;
+    animation-name: hide-modal;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+}
+
 .modal--visible {
     visibility: visible;
     animation-name: show-modal;
     animation-duration: 200ms;
     animation-timing-function: ease-out;
 }
+
 
