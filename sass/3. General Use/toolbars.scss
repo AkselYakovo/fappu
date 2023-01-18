@@ -1,0 +1,50 @@
+.toolbar__search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 480px;
+    margin: 0 auto;
+    margin-bottom: 75px;
+    border: 0.75px solid $alternative-gray;
+    border-radius: 30px;
+
+    background-color: $mega-white;
+    overflow: hidden;
+    .toolbar__icon {
+        flex-grow: 0;
+        width: 36px;
+        height: 36px;
+        margin-right: 20px;
+        svg {
+            width: 100%;
+            height: 100%;
+            fill: $alternative-gray;
+        }
+    }
+    .toolbar__input {
+        flex-grow: 1;
+        font-size: 28px;
+        color: $mega-gray;
+        
+        margin-right: auto;
+        padding: 20px 5px 20px 30px;
+        border: 0;
+        &:focus { 
+            border: 0;
+            outline: 0; 
+            box-shadow: 0 0 0 0 transparent;
+        }
+        
+    }
+}
+
+.toolbar--focused {
+    border-color: $main-color;
+    box-shadow: 0 3px 12px -4px rgba($main-color, 0.19);
+    .toolbar__icon {
+        svg { fill: $main-color; }
+    }
+    .toolbar__input {
+        color: $main-color;
+    }
+}

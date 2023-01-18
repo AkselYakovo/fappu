@@ -1,0 +1,21 @@
+.card__loader {
+    width: 450px;
+    margin: 0 auto;
+    padding: 10px 0;
+    border: 5px solid $alternative-gray;
+    border-radius: 15px;
+
+    font-family: 'Roboto Condensed Bold', sans-serif;
+    font-size: 36px;
+
+    text-align: center;
+    letter-spacing: 0.1em;
+
+    color: $alternative-gray;
+
+    transition: opacity 150ms linear;
+}
+
+.card__loader.hidden {
+    opacity: 0;
+}

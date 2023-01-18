@@ -1,0 +1,254 @@
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    font-family: 'Roboto Condensed Regular', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: inherit;
+
+    min-width: 100px;
+    border: inherit;
+    box-sizing: border-box;
+    
+    &::-webkit-placeholder { color: $alternative-gray; }
+    &::-moz-placeholder { color: $alternative-gray; }
+    &::placeholder { color: $alternative-gray; }
+
+    &:focus {
+        color: $main-color;
+        border: 0.75px solid $main-color;
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba($main-color, 0.2);
+    }
+    &:invalid {
+        color: $err;
+        border: 0.75px solid $err;
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba($err, 0.2);
+
+    }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    visibility: hidden;
+}
+
+textarea {
+    box-sizing: border-box;
+
+    width: 335px;
+    height: 300px;
+    min-width: 275px;
+    min-height: 150px;
+    padding: 20px;
+    border: 0.75px solid $alternative-gray;
+    border-radius: 30px;
+    
+    outline-color: transparent;
+
+    font-family: 'Work Sans Light', sans-serif;
+    font-size: 18px;
+
+    letter-spacing: -0.05em;
+    text-transform: none;
+    line-height: 1.333;
+    
+
+    resize: none;
+
+    &:focus {
+        color: $main-color;
+        border: 0.75px solid $main-color;
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba($main-color, 0.2);
+    }
+
+    &:invalid {
+        color: $err;
+        border: 0.75px solid $err;
+        outline: 0;
+        box-shadow: 0 0 0 3px rgba($err, 0.2);
+    }
+}
+
+form {
+
+    label {
+        font-family: 'Work Sans Light', sans-serif;
+        font-size: 20px;
+        color: $mega-gray;
+        cursor: pointer;
+
+        transition: color 75ms linear;
+    }
+
+}
+
+/***         ***/
+/*** CLASSES ***/
+/***         ***/
+
+input.form-input {
+    width: 335px;
+    padding: 15px 10px;
+    border: 0.75px solid $alternative-gray;
+    border-radius: 50px;
+
+    font-family: 'Roboto Condensed Light', sans-serif;
+    font-size: 28px;
+    letter-spacing: -0.045em;
+    text-align: center;
+    color: $mega-gray;
+}
+
+
+
+input.white-input {
+    // min-width: 300px;
+    
+    font-family: 'Roboto Condensed Light', Helvetica, Arial, Tahoma, Verdana, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: -0.025em;
+
+    padding: 10px 20px;
+    border: 1px solid $mega-white;
+    border-radius: 50px;
+
+    background-color: transparent;
+    color: $mega-white;
+
+    &:focus {
+        border: 1px solid $mega-white;
+
+        color: $mega-white;
+    }
+
+}
+
+
+
+
+/***                                            ***/
+/*** Visual helpers For Check & Radio boxes.. ***/
+/***                                            ***/
+
+.checkbox-figure {
+    display: block;
+    width: 26px;
+    height: 26px;
+    margin: 10px;
+    border: 0.75px solid $alternative-gray;
+    border-radius: 2px;
+    background-color: $mega-white;
+
+    transition: border 75ms linear;
+}
+
+// .checkbox-figure--checked {
+//     border: 2px solid $main-color;
+// }
+
+
+
+/***                     ***/
+/*** Custom Components.. ***/
+/***                     ***/
+
+.form-selection-wrapper {
+    position: relative;
+
+    cursor: pointer;
+
+    .form-input {
+        position: relative;
+        z-index: 6;
+
+        letter-spacing: 0.05em;
+
+        cursor: pointer;
+
+        &::before {
+            content: '';
+
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            border-color: $mega-black transparent transparent transparent;
+            border-style: solid;
+            border-width: 10px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+        }
+    }
+
+    .option-list {
+        @include fixBox;
+        @include sh-selection-box;
+
+        display: none;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+
+        width: 335px;
+        padding: 70px 20px 25px 20px;
+        border: 0.75px solid $alternative-gray;
+        border-radius: 30px;
+
+        background-color: $mega-white;
+
+        .option {
+            margin-bottom: 1px;
+            padding: 15px 0;
+            border-bottom: 1px solid $alternative-gray;
+
+            font-family: 'Roboto Condensed Light', sans-serif;
+            font-size: 28px;
+
+            letter-spacing: 0.05em;
+            text-align: center;
+
+            color: $mega-gray;
+
+            background-color: $mega-white;
+
+            cursor: pointer;
+
+            transition: background-color 150ms linear;
+
+            &:hover {
+                background-color: $bone-color;
+            }
+        }
+    }
+
+    .arrow {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        z-index: 7;
+
+        transform: translateY(-50%);
+
+        transition: transform 200ms ease-in-out;
+    }
+}
+
+.form-selection-wrapper.menu-opened {
+    display: block;
+
+    .option-list {
+        display: initial;
+    }
+
+    .arrow {
+        transform: translateY(-50%) rotate(.5turn);
+    }
+}
+
+

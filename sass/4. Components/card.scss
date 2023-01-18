@@ -1,0 +1,374 @@
+.card {
+    @include article-unfocused;
+    
+    position: relative;
+
+    display: flex;
+    width: 1140px;
+    height: 510px;
+    margin: 0 auto 75px auto;
+
+    background-color: $mega-white;
+
+    overflow: hidden;
+
+    &::selection {
+        background: transparent;
+        color: inherit;
+    }
+}
+
+.card .card__carrousel {
+    position: relative;
+    left: 0;
+    width: 540px;
+    height: 100%;
+
+    overflow: hidden;
+
+    transition: left 750ms ease-in-out;
+    -webkit-transition: left 750ms ease-in-out;
+    -moz-transition: left 750ms ease-in-out;
+    -o-transition: left 750ms ease-in-out;
+    
+    .carrousel__controls {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+
+        .carrousel__control {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 20px;
+            border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            background-color: $bone-color;
+            cursor: pointer;
+            &:last-child { margin-right: 0; }  
+        }
+
+        .carrousel__control--active { background-color: $main-color; }
+    }
+
+    .carrousel__pictures {
+        position: relative;
+        width: 540px;
+        height: 100%;
+
+        transition: transform 150ms ease-in-out;
+
+        figure {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            transition: filter 100ms linear;
+            -webkit-transition: filter 100ms linear;
+            -moz-transition: filter 100ms linear;
+            -o-transition: filter 100ms linear;
+            filter: saturate(0%);
+            -webkit-filter: saturate(0%);
+
+            img {
+                display: block;
+                width: 100%;
+            }
+
+
+            &:hover {
+                filter: saturate(100%) contrast(1.125);
+                -webkit-filter: saturate(100%) contrast(1.125);
+            }
+            &:nth-child(2) {
+                left: 100%;
+            }
+            &:nth-child(3) {
+                left: 200%;
+            }
+        }
+    }
+}
+
+.card .card__content {
+    position: relative;
+    left: 0;
+
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    
+    padding: 5px 0 5px 0;
+    background-color: $mega-white;
+
+    transition: left 750ms ease-in-out;
+    -webkit-transition: left 750ms ease-in-out;
+    -moz-transition: left 750ms ease-in-out;
+    -o-transition: left 750ms ease-in-out;
+
+    .content__header {
+        position: relative;
+        width: 100%;
+        padding: 10px 0;
+
+        .content__sitecode {
+            font-family: 'Work Sans Bold', serif;
+            font-size: 54px;
+            letter-spacing: 0.01em;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .content__link {
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+
+            display: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+
+            font-family: 'Work Sans SemiBold', sans-serif;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+
+            color: $mega-white;
+            background-color: $mega-black;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            cursor: pointer;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 50%;
+                top: -19px;
+
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                
+                border-color: transparent transparent $mega-black transparent;
+                border-style: solid;
+                border-width: 10px;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+            }
+        }
+    }
+
+    .content__price {
+
+        .content__subtitle {
+            font-family: 'Work Sans Regular', serif;
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+        }
+
+        .content__montlyprice {
+            font-family: 'Roboto Condensed Regular', serif;
+            font-size: 32px;
+            font-weight: normal;
+            text-align: center;
+            text-transform: uppercase;
+            text-decoration: line-through;
+            letter-spacing: 0.05em;
+            color: $main-color;
+            opacity: 0.3;
+            opacity: filter(50%);
+
+        }
+    }
+
+    .content__price--emphazised {
+
+        .content__subtitle { font-size: 28px; } 
+
+        .content__montlyprice { 
+            font-size: 40px; 
+            text-decoration: none;
+            opacity: 1;
+            opacity: filter(100%);
+        } 
+    }
+
+    .content__buybutton { 
+        margin-top: 30px; 
+    }
+
+    .content__slidders {
+        position: relative;
+        height: 7px;
+        padding-bottom: 20px;
+
+        .content__slidder {
+            display: inline-block;
+            width: 125px;
+            height: 7px;
+
+            margin-right: 10px;
+            border-radius: 25px;
+
+            background-color: $secondary-gray;
+            transition: background-color 100ms linear;
+            -webkit-transition: background-color 100ms linear;
+            -moz-transition: background-color 100ms linear;
+            -ms-transition: background-color 100ms linear;
+            -o-transition: background-color 100ms linear;
+            cursor: pointer;
+
+            &:nth-last-child(1) { margin-right: 0; }
+        }
+
+        .content__slidder--active {
+            background-color: $main-color;
+        }
+    }
+    
+}
+/*  ***  */
+/*Make Link Tooltip Appear within the header of Card component. */
+/*  ***  */
+.content__header:hover > .content__link { 
+    display: inline-block !important;
+    bottom: -25px !important; 
+}
+
+.card .card__subsites {
+    position: absolute; 
+    right: -55%;
+    display: flex;
+    width: 600px;
+    height: 100%;
+    overflow: hidden;
+    transition: right 800ms ease-in-out;
+    -webkit-transition: right 800ms ease-in-out;
+    -moz-transition: right 800ms ease-in-out;
+    -ms-transition: right 800ms ease-in-out;
+    -o-transition: right 800ms ease-in-out;
+
+    .subsites__subtitle {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        z-index: 3;
+
+        padding: 10px 20px;
+        border-radius: 100px;
+        
+        font-family: 'Work Sans Bold', monospace;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        text-shadow: 0 0 4px black;
+
+        background-color: rgba($mega-white, 0.25);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        color: $mega-white;
+
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+    }
+
+    .subsites__screens {
+        position: relative; 
+        display: flex;
+        height: 100%;
+
+        .subsites__screen {
+            position: relative;
+            width: 320px;
+            height: 100%;
+            overflow: hidden;
+
+            &:hover {
+                
+                .screen__picture {
+                    filter: saturate(1.1); 
+                    -webkit-filter: saturate(1.1);
+                }
+            }
+
+            .screen__picture {
+                width: 100%;
+                filter: saturate(0); 
+                -webkit-filter: saturate(0);
+
+                transition: filter 200ms ease-out;
+            }
+            
+            .subsite__logo {
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                z-index: 5;
+
+                width: 205px;
+
+                transform: rotate(8deg) translateX(-50%);
+                -webkit-transform: rotate(8deg) translateX(-50%);
+                -moz-transform: rotate(8deg) translateX(-50%);
+                -ms-transform: rotate(8deg) translateX(-50%);
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+
+.card .card__status {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    width: 10px;
+    height: 100%;
+
+    background-color: $success;
+}
+
+
+/* =========================
+Modifiers of Card component. 
+============================ */
+
+.card--second-phase {
+
+    .card__carrousel {
+        left: -10%;
+    }
+    .card__content {
+        left: -50%;
+    }
+    .card__subsites {
+        right: 0;
+    }
+}
+
+.card--unavailable {
+    .card__status { background-color: $err; }
+
+    .content__buybutton.disabled {
+        opacity: 0.25;
+    }
+}

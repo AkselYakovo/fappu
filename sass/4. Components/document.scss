@@ -1,0 +1,84 @@
+.document-card {
+    @include article-unfocused;
+
+    width: 1050px;
+    margin: 25px auto 150px auto;
+    padding: 50px;
+
+    text-transform: uppercase;
+    background-color: $mega-white;
+    color: $mega-black;
+    
+    .document__heading,
+    .document__legalheading,
+    .document__legalterm {  
+        margin-bottom: 50px;
+        padding: 0.5px;  // Margin Collapse Fix..
+    }
+
+    .document__heading {
+        font-family: 'Work Sans Bold', serif;
+        font-size: 54px;
+        letter-spacing: 0.075em;
+        text-align: center;
+    }
+
+    .document__legalheading {
+        font-family: 'Work Sans Light', serif;
+        font-size: 36px;
+        letter-spacing: -0.025em;
+        text-align: center;
+    }
+
+    .document__legalterm {
+        font-family: 'Roboto Condensed Light', sans-serif;
+        font-size: 20px;
+        line-height: 170%;
+        margin-bottom: 30px;
+    }
+
+}
+
+.document-card form {
+    margin-top: 100px;
+    .row {
+        display: flex;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 550px;
+        margin-bottom: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        label {
+            max-width: 100px;
+            margin-right: auto;
+        }
+    }
+
+    .row-single {
+        justify-content: center;
+        label {
+            max-width: initial; 
+            margin-right: initial;
+        }
+    }
+    .row--onfocus {
+        label { color: $main-color; }
+        .checkbox-figure { border-color: $main-color; }
+    }
+    .row--onerror {
+        .error-message {
+            display: block;
+        }
+    }
+    
+
+    button { 
+        display: block;
+        margin: auto;
+    }
+}

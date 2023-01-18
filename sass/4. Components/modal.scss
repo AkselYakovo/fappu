@@ -1,0 +1,124 @@
+#modal-overlay {
+    // display: none;
+
+    visibility: hidden;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 101;
+
+    background-color: black;
+    opacity: 0.25;
+    
+}
+
+.modal {
+    @include box-shadow(0, -3px, 42px, 0, rgba($mega-black, 0.36) );
+
+    visibility: hidden;
+
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    z-index: 102;
+
+    display: flex;
+    display: flexbox;
+    display: -ms-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 900px;
+    height: 530px;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-clip: border-box;
+    background-size: cover;
+    background-blend-mode: luminosity;
+    background-color: black;
+
+    // filter: saturate(0%);
+    // -webkit-filter: saturate(0%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.modal--visible + #modal-overlay {
+    visibility: visible;
+}
+
+
+.modal .modal__content {
+    width: 450px;
+    padding: 20px 10px 40px 10px;
+
+    background-color: rgba($mega-black, 0.36);
+    // background-color: rgba($mega-black, 0.1);
+    // backdrop-filter: blur(10px);
+    // -webkit-backdrop-filter: blur(10px);
+    color: $mega-white;
+
+    @supports ( backdrop-filter: blur(10px) ) {
+        background-color: rgba($mega-black, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+
+    .content__heading {
+        font-family: 'Work Sans Bold', serif;
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: 0.025em;
+
+        margin-bottom: 20px;
+        color: inherit;
+    }
+
+    .content__note {
+        font-family: 'Roboto Condensed Light', Verdana, Helvetica, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        letter-spacing: 0.025em;
+        line-height: 28px;
+
+        margin-bottom: 40px;
+
+        .website {
+            text-decoration: underline;
+            font-weight: bolder;
+        }
+
+    }
+
+    form {
+        padding-bottom: 20px;
+
+        input.white-input {
+            display: block;
+            margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+
+    }
+}
+
+
+.modal--visible {
+    visibility: visible;
+    animation-name: show-modal;
+    animation-duration: 200ms;
+    animation-timing-function: ease-out;
+}
+

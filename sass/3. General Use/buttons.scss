@@ -1,0 +1,57 @@
+button {
+    padding: 10px 20px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $main-color;
+    border-radius: 14px;
+
+    font-family: 'Roboto Condensed Light', serif;
+    font-size: 36px;
+    letter-spacing: 0.05em;
+
+    background-color: $main-color;
+    color: $bone-color;
+    cursor: pointer;
+}
+
+button:focus {
+    outline-width: 2px;
+    outline-color: $main-color;
+    outline-offset: 5px;
+}
+
+button:disabled {
+    opacity: 0.5;
+}
+
+/* Button Classes.. */
+
+button.secondary {
+    background-color: $mega-white;
+    color: $main-color;
+}
+
+button.white {
+    border-color: $mega-white;
+    background-color: transparent;
+    color: $mega-white;
+    &:focus {
+        outline-color: $mega-white;
+        outline-style: outset;
+    }
+}
+
+/* Button Size Classes.. */
+
+button.md {
+    font-size: 26px;
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+
+button.sm {
+    font-size: 18px;
+    padding: 5px 7px;
+    border-radius: 14px;
+}
+
