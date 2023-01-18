@@ -23,7 +23,7 @@ $websites_listing_query = "SELECT `w`.`SITE_CODE` AS `SITE_CODE`, `w`.`SITE_TITL
                                         GROUP BY `SITE_CODE`) AS `AVAILABLE`
 
                            ON `w`.`SITE_CODE` = `AVAILABLE`.`SITE_CODE`
-                           LIMIT 2";
+                           LIMIT 1";
 
 $websites_listing = $main_conn->query($websites_listing_query);
 ?>
@@ -32,10 +32,10 @@ $websites_listing = $main_conn->query($websites_listing_query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Compra Tus Cuentas Porno A Un Increible Precio!">
+    <meta name="description" content="Buy premium porn accounts!">
     <script src="./js/carrousel.js" defer="defer" type="module"></script>
     <link rel="stylesheet" href="./style.css">
-    <title>Fappu | Cuentas de Streaming Premium</title>
+    <title>Fappu | Premium Adult Streaming Accounts</title>
 </head>
 <body>
     <header class="header">
@@ -159,7 +159,7 @@ $websites_listing = $main_conn->query($websites_listing_query);
 
     <div class="card__loader hidden">LOADING...</div>
     
-    <div id="modal" class="modal modal--visible" style="background-image: url('https://bangusa.com/bangbus/shoots/bb13103/bangbros/big3.jpg');">
+    <div id="modal" class="modal" style="background-image: url('');">
         <div class="modal__content">
             <h4 class="content__heading">DO YOU WANT YOUR XXX?</h4>
             <p class="content__note">
