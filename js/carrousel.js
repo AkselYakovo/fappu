@@ -22,7 +22,8 @@ cardsCollection.forEach(node => {
 let loader = document.querySelector('.card__loader');
 
 
-// Query Bar Functionality.
+// ~ Query Bar Functionality.
+// + Adding Cards to main container depending on the results of the query.
 let queryBar = document.querySelector('.toolbar__search input');
 
 queryBar.addEventListener('keydown', function(e) {
