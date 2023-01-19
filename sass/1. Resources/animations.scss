@@ -20,3 +20,12 @@
         visibility: hidden;
     }
 }
+
+@keyframes animati {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

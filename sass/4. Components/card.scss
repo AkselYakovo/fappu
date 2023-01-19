@@ -26,10 +26,14 @@
 
     overflow: hidden;
 
-    transition: left 750ms ease-in-out;
-    -webkit-transition: left 750ms ease-in-out;
-    -moz-transition: left 750ms ease-in-out;
-    -o-transition: left 750ms ease-in-out;
+    transition: transform 750ms ease-in-out;
+    -webkit-transition: transform 750ms ease-in-out;
+    -moz-transition: transform 750ms ease-in-out;
+    -o-transition: transform 750ms ease-in-out;
+    // transition: left 750ms ease-in-out;
+    // -webkit-transition: left 750ms ease-in-out;
+    // -moz-transition: left 750ms ease-in-out;
+    // -o-transition: left 750ms ease-in-out;
     
     .carrousel__controls {
         position: absolute;
@@ -106,10 +110,14 @@
     padding: 5px 0 5px 0;
     background-color: $mega-white;
 
-    transition: left 750ms ease-in-out;
-    -webkit-transition: left 750ms ease-in-out;
-    -moz-transition: left 750ms ease-in-out;
-    -o-transition: left 750ms ease-in-out;
+    transition: transform 750ms ease-in-out;
+    -webkit-transition: transform 750ms ease-in-out;
+    -moz-transition: transform 750ms ease-in-out;
+    -o-transition: transform 750ms ease-in-out;
+    // transition: left 750ms ease-in-out;
+    // -webkit-transition: left 750ms ease-in-out;
+    // -moz-transition: left 750ms ease-in-out;
+    // -o-transition: left 750ms ease-in-out;
 
     .content__header {
         position: relative;
@@ -249,15 +257,21 @@
 .card .card__subsites {
     position: absolute; 
     right: -55%;
+    // transform: translateX(-55%);
     display: flex;
     width: 600px;
     height: 100%;
     overflow: hidden;
-    transition: right 800ms ease-in-out;
-    -webkit-transition: right 800ms ease-in-out;
-    -moz-transition: right 800ms ease-in-out;
-    -ms-transition: right 800ms ease-in-out;
-    -o-transition: right 800ms ease-in-out;
+    transition: transform 800ms ease-in-out;
+    -webkit-transition: transform 800ms ease-in-out;
+    -moz-transition: transform 800ms ease-in-out;
+    -ms-transition: transform 800ms ease-in-out;
+    -o-transition: transform 800ms ease-in-out;
+    // transition: right 800ms ease-in-out;
+    // -webkit-transition: right 800ms ease-in-out;
+    // -moz-transition: right 800ms ease-in-out;
+    // -ms-transition: right 800ms ease-in-out;
+    // -o-transition: right 800ms ease-in-out;
 
     .subsites__subtitle {
         position: absolute;
@@ -355,13 +369,13 @@ Modifiers of Card component.
 .card--second-phase {
 
     .card__carrousel {
-        left: -10%;
+        transform: translateX(-15%);
     }
     .card__content {
-        left: -50%;
+        transform: translateX(-95%);
     }
     .card__subsites {
-        right: 0;
+        transform: translateX(-100%);
     }
 }
 
