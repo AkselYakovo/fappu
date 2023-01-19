@@ -4,34 +4,36 @@ import { sendCardQuery } from './connections.js';
 let new_script = document.createElement('script');
 new_script.setAttribute('src', './js/form.js');
 
-// Add New Script Tag.
+// ~ Add New Script Tag.
 document.head.appendChild(new_script); 
 
-// Main Node.
+// ~ Main Node.
 const main = document.querySelector('main.content');
 
+// ~ Cards Collection object.
+// + Store for future retrival of cards.
 let savedCardsCollection = {};
 
+// ~ Initial Cards.
 let cardsCollection = document.querySelectorAll('div.card');
 cardsCollection.forEach(node => {
     setCard(node)
     savedCardsCollection[node.getAttribute('data-display')] = node;
 });
 
-
+// ~ Loader Component.
 let loader = document.querySelector('.card__loader');
 
 
 // ~ Query Bar Functionality.
 // + Adding Cards to main container depending on the results of the query.
 let queryBar = document.querySelector('.toolbar__search input');
-
 queryBar.addEventListener('keydown', function(e) {
 
     let regex = /^([a-zA-Z])$|Tab|Backspace/; // Allowed Keys.
-
-    // Block default actions from the rest of keys.
-    if ( !regex.test(e.key) ) {
+    
+    // Block default actions from the rest of keys || Block ctrl & alt keys actions.
+    if ( !regex.test(e.key) || e.altKey || e.ctrlKey ) {
         e.preventDefault();
         return;
     }
@@ -41,10 +43,10 @@ queryBar.addEventListener('keydown', function(e) {
     let isEmpty = true;
         
     main.innerHTML = ''; 
-    loader.classList.remove('hidden');
 
-    for (const card in savedCardsCollection) {
-        console.log(card);
+    for (const card in savedCardsCollection) 
+    {
+        // Test if 'SITE' exists on object.
         if ( regEx.test(card) ) {
             main.append( savedCardsCollection[card] );
             isEmpty = false;
@@ -52,8 +54,11 @@ queryBar.addEventListener('keydown', function(e) {
     }
 
     if ( isEmpty && this.value != '' ) {
+
+        loader.classList.remove('hidden');
         
         sendCardQuery(query).then( message => {
+
             let data = JSON.parse(message);
 
             if ( data ) {
@@ -64,7 +69,7 @@ queryBar.addEventListener('keydown', function(e) {
                         main.append(card);
                     }
                     else if ( savedCardsCollection[ card['SITE_TITLE'] ] ) {
-                        console.log(`${card['SITE_TITLE']} Already Exists..`)
+                        // console.log(`${card['SITE_TITLE']} Already Exists..`)
                     }
                     
                 });
@@ -72,15 +77,18 @@ queryBar.addEventListener('keydown', function(e) {
             } else {
                 // main.append(teaseCard); <= SOON!
             }
+
             loader.classList.add('hidden');
+            
         }).catch( err => console.log(err) );
     }
 
+    // If Query bar is empty fill main component with initial cards
     else if ( this.value == '' ) {
         main.innerHTML = '';
         cardsCollection.forEach( card => {
             main.append(card);
-        })
+        });
     }
 
 });
@@ -102,17 +110,19 @@ modalOverlay.addEventListener('click', function(e) {
     
 
 });
-
+// ~ Tease Modal E-mail input validation.
+// + Validate input
 emailInput.addEventListener('keydown', function(e) {
+    // Only permited keys..
     let regex = /[a-zA-Z0-9]|Backspace|-|_|@|\.|/ig;
 
-    if ( !regex.test(e.key) ) {
+    if ( !regex.test(e.key) ) 
         e.preventDefault();
-    }
-
 });
 
-// Send Info.
+// ~ Tease Modal Form Fun.
+// + Validate E-mail provided.
+// + Send data.
 daForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
