@@ -17,7 +17,7 @@ export function checkScreens(collection, nodeViewport) {
     })
 }
 
-
+// ~ Setting Card Component Functionality (Animations, Events, Metadata, etc)
 export function setCard(node) {
     let phaseControls = node.querySelectorAll('.content__slidder');
     node.phase = 0; // Initial Phase.
@@ -25,7 +25,8 @@ export function setCard(node) {
     // Carrousel Phases Handler.
     phaseControls.forEach( phaseNode => {
         phaseNode.addEventListener('click', function(e) {
-            switch (node.phase) {
+            switch (node.phase) 
+            {
                 case 0:
                     phaseControls[0].classList.remove('content__slidder--active');
                     phaseControls[1].classList.add('content__slidder--active');
@@ -66,7 +67,7 @@ export function setCard(node) {
         else {}
     })
 
-    // Carousel Handler.
+    // ~ Carousel Handler.
     let carousel = node.querySelector('.carrousel__pictures');
     let carrouselControls = node.querySelectorAll('.carrousel__control');
     carrouselControls.forEach( controlNode => {
@@ -76,13 +77,12 @@ export function setCard(node) {
                 node.querySelector('.carrousel__control--active').classList.remove('carrousel__control--active');
                 carrouselControls[pos - 1].classList.add('carrousel__control--active');
                 carousel.style.transform = `translateX(${ -(carousel.parentElement.offsetWidth * (pos - 1)) }px)`;
-                carrouselIndex = pos - 1;
             }
         });
     });
-    // let carrouselIndex = 0;
 
-    // ~ Carousel Lazy Load ~
+    // ~ Carousel Lazy Load.
+    // + Intersection Observer.
     let carrouselPictures = carousel.querySelectorAll('img');
     const options = {
         root: null,
@@ -202,14 +202,14 @@ export function createCards(objs) {
                                 <span class="content__link">${objs[i]['SITE_URL']}</span>
                             </header>
                             <div class="content__price">
-                                <h3 class="content__subtitle">PRECIO ORIGINAL:</h3>
-                                <span class="content__montlyprice">$${objs[i]['ORIGINAL_PRICE']}.00 MXN/MES</span>
+                                <h3 class="content__subtitle">ORIGINAL PRICE:</h3>
+                                <span class="content__montlyprice">$${objs[i]['ORIGINAL_PRICE']}.00 MXN/MONTH</span>
                             </div>
                             <div class="content__price content__price--emphazised">
-                                <h3 class="content__subtitle">NUESTRA OFERTA:</h3>
-                                <span class="content__montlyprice">$${objs[i]['OFFER_PRICE']}.00 MXN/MES</span>
+                                <h3 class="content__subtitle">OUR OFFER:</h3>
+                                <span class="content__montlyprice">$${objs[i]['OFFER_PRICE']}.00 MXN/MONTH</span>
                             </div>
-                            <button class="content__buybutton" type="button">COMPRAR</button>
+                            <button class="content__buybutton" type="button">BUY</button>
                             <div class="content__slidders">
                                 <figure class="content__slidder content__slidder--active"></figure>
                                 <figure class="content__slidder"></figure>
