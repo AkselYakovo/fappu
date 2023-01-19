@@ -10,7 +10,7 @@
     <!-- <meta name="description" content="Contacto"> -->
     <!-- <meta name="keywords" content="Contacto"> -->
     <script src="./js/contacto.js" defer="defer" type="module"></script>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Contacto  ||  Cuentas Fapu</title>
 </head>
 <body>
