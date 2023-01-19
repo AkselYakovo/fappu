@@ -83,7 +83,7 @@ $websites_listing = $main_conn->query($websites_listing_query);
                 <?php for($i = 1; $i <= 3; $i++): ?>
                 <figure>
                     <img src="<?php echo "../fappu_admin/assets/thumbs/" . strtolower($website['SITE_CODE']) . "/blur/" . $website['SITE_TITLE'] . "_$i.jpg"; ?>" 
-                    alt="<?php echo $website['SITE_TITLE'] . " Promotional Picture #$i" ?>" 
+                    alt="<?php echo $website['SITE_TITLE'] . " Promotional Picture #$i" ?>" draggable="false" 
                     data-display="<?php echo "../fappu_admin/assets/thumbs/" . strtolower($website['SITE_CODE']) . "/" . $website['SITE_TITLE'] . "_$i.jpg"; ?>">
                 </figure>
                 <?php endfor; ?>
@@ -136,11 +136,13 @@ $websites_listing = $main_conn->query($websites_listing_query);
             <?php foreach($screens as $screen): ?>
 
                 <figure class="subsites__screen" id="testy">
-                    <img class="screen__picture" src="<?php echo "../fappu_admin/assets/screens/" . $website['SITE_CODE'] . "/blur/$screen.jpg"; ?>" alt="<?php echo $screen; ?> Included Website Picture"
-                    data-display="<?php echo "../fappu_admin/assets/screens/" . $website['SITE_CODE'] . "/$screen.jpg"; ?>" draggable="false">
+                    <img class="screen__picture" src="<?php echo "../fappu_admin/assets/screens/" . $website['SITE_CODE'] . "/blur/$screen.jpg"; ?>" 
+                    alt="<?php echo $screen; ?> Included Website Picture" draggable="false"
+                    data-display="<?php echo "../fappu_admin/assets/screens/" . $website['SITE_CODE'] . "/$screen.jpg"; ?>">
                     <figure class="subsite__logo">
-                        <img src="<?php echo "../fappu_admin/assets/subsites_logos/" . $website['SITE_CODE'] . "/blur/$screen.png"; ?>" alt="<?php echo "$screen LOGO"; ?>"
-                        data-display="<?php echo "../fappu_admin/assets/subsites_logos/" . $website['SITE_CODE'] . "/$screen.png"; ?>" draggable="false">
+                        <img src="<?php echo "../fappu_admin/assets/subsites_logos/" . $website['SITE_CODE'] . "/blur/$screen.png"; ?>" 
+                        alt="<?php echo "$screen LOGO"; ?>" draggable="false"
+                        data-display="<?php echo "../fappu_admin/assets/subsites_logos/" . $website['SITE_CODE'] . "/$screen.png"; ?>">
                     </figure>
                 </figure>
 
