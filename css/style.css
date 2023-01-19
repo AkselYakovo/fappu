@@ -703,8 +703,8 @@ input.white-input:focus {
   background-color: #FFF;
   overflow: hidden;
 }
-.card::selection {
-  background: transparent;
+.card ::selection {
+  background: ghostwhite;
   color: inherit;
 }
 
@@ -714,6 +714,7 @@ input.white-input:focus {
   width: 540px;
   height: 100%;
   overflow: hidden;
+  user-select: none;
   transition: transform 750ms ease-in-out;
   -webkit-transition: transform 750ms ease-in-out;
   -moz-transition: transform 750ms ease-in-out;
@@ -838,6 +839,10 @@ input.white-input:focus {
   border-radius: 4px;
   -webkit-border-radius: 4px;
 }
+.card .card__content .content__header .content__link::selection {
+  background: white;
+  color: black;
+}
 .card .card__content .content__price .content__subtitle {
   font-family: "Work Sans Regular", serif;
   font-size: 20px;
@@ -911,6 +916,7 @@ input.white-input:focus {
   width: 600px;
   height: 100%;
   overflow: hidden;
+  user-select: none;
   transition: transform 800ms ease-in-out;
   -webkit-transition: transform 800ms ease-in-out;
   -moz-transition: transform 800ms ease-in-out;
@@ -943,6 +949,10 @@ input.white-input:focus {
   position: relative;
   display: flex;
   height: 100%;
+  cursor: grab;
+}
+.card .card__subsites .subsites__screens:active {
+  cursor: grabbing;
 }
 .card .card__subsites .subsites__screens .subsites__screen {
   position: relative;
