@@ -12,8 +12,8 @@
 
     overflow: hidden;
 
-    &::selection {
-        background: transparent;
+    & ::selection {
+        background: ghostwhite;
         color: inherit;
     }
 }
@@ -25,6 +25,7 @@
     height: 100%;
 
     overflow: hidden;
+    user-select: none;
 
     transition: transform 750ms ease-in-out;
     -webkit-transition: transform 750ms ease-in-out;
@@ -133,6 +134,7 @@
         }
 
         .content__link {
+            
             position: absolute;
             bottom: 0px;
             left: 50%;
@@ -147,12 +149,14 @@
 
             color: $mega-white;
             background-color: $mega-black;
+
             transform: translateX(-50%);
             -webkit-transform: translateX(-50%);
             -moz-transform: translateX(-50%);
             -ms-transform: translateX(-50%);
             -o-transform: translateX(-50%);
             cursor: pointer;
+
             &::before {
                 content: '';
                 position: absolute;
@@ -171,7 +175,14 @@
                 border-radius: 4px;
                 -webkit-border-radius: 4px;
             }
+
+            &::selection {
+                background: rgba($color: white, $alpha: 1);
+                color: black;
+            }
+
         }
+
     }
 
     .content__price {
@@ -246,6 +257,7 @@
     }
     
 }
+
 /*  ***  */
 /*Make Link Tooltip Appear within the header of Card component. */
 /*  ***  */
@@ -261,7 +273,10 @@
     display: flex;
     width: 600px;
     height: 100%;
+
     overflow: hidden;
+    user-select: none;
+
     transition: transform 800ms ease-in-out;
     -webkit-transition: transform 800ms ease-in-out;
     -moz-transition: transform 800ms ease-in-out;
@@ -304,6 +319,12 @@
         position: relative; 
         display: flex;
         height: 100%;
+
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
 
         .subsites__screen {
             position: relative;
