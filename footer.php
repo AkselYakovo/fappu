@@ -1,6 +1,6 @@
 <footer class="footer">
         <ul class="footer__links">
-            <li class="link"><a href="./reclaim.php">RECLAIM</a></li>
+            <li class="link"><a href="./reclaim.php">CLAIM</a></li>
             <li class="link"><a href="./contact.php">CONTACT</a></li>
             <li class="link"><a href="./tos.php">TERMS OF SERVICE</a></li>
         </ul>
