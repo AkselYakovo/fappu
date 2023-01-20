@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <script src="./js/form.js" defer="defer"></script>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Claim Service | Fappu Accounts</title>
+    <title>Claim Service | Fappu</title>
 </head>
 <body>
     <header class="header header--subtitleless">

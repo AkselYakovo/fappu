@@ -7,15 +7,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta name="description" content="Contacto"> -->
-    <!-- <meta name="keywords" content="Contacto"> -->
     <script src="./js/contacto.js" defer="defer" type="module"></script>
     <link rel="stylesheet" href="./css/style.css">
-    <title>Contacto  ||  Cuentas Fapu</title>
+    <title>Contact | Fappu</title>
 </head>
 <body>
     <header class="header header--subtitleless">
-            <h1 class="header__title">CUENTAS FAPU</h1>
+            <h1 class="header__title">FAPPU ACCOUNTS</h1>
             <div class="header__separator">
                 <figure class="dot"></figure>
                 <figure class="dot"></figure>
@@ -33,25 +31,25 @@
     <?php if ( isset($_GET['message-received-confirmation']) ): ?>
     
     <div class="alert message-received-alert">
-        <span class="alert__title">ATENCIÓN:</span>
+        <span class="alert__title">NOTICE:</span>
         <p class="alert__text">
-            <?php echo htmlentities("Nos pondremos en contacto contigo dentro de 1 - 3 días hábiles."); ?>
+            <?php echo htmlentities("We'll reply within 1 - 3 working days.") ?>
         </p>
     </div>
 
     <?php endif ?>
 
     <section class="document-card">
-        <h2 class="document__heading">CONTACTO</h2>
+        <h2 class="document__heading">CONTACT</h2>
         <form method="POST" autocomplete="off" enctype="www-application">
             <span class="row">
                 <label for="cat">TOPIC:</label>
                 <div class="form-selection-wrapper">
                     <input type="text" name="email__category" class="form-input" id="cat" value="" placeholder="SELECT TOPIC" data-display="" readonly>
                     <ul class="option-list" role="selection">
-                        <li class="option" data-display="ACCOUNT">CUENTA</li>
-                        <li class="option" data-display="RECLAIMS">RECLAMOS</li>
-                        <li class="option" data-display="OTHER">OTROS</li>
+                        <li class="option" data-display="ACCOUNT">ACCOUNT</li>
+                        <li class="option" data-display="RECLAIMS">CLAIMS</li>
+                        <li class="option" data-display="OTHER">OTHER</li>
                     </ul>
 
                     <svg class="arrow" width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +67,7 @@
                 <textarea name="user__msg" id="msg" placeholder="Your message here..." max="140"></textarea>
             </span>
             
-            <button type="submit" class="button md">ENVIAR</button>
+            <button type="submit" class="button md">SEND</button>
 
             <input type="hidden" name="user__info" value="<?php echo $_SERVER['SERVER_ADDR'] ?>">
         </form>
