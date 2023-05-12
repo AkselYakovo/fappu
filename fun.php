@@ -2,9 +2,17 @@
 define('__CATEGORIES__', array('ACCOUNT', 'OTHER', 'RECLAIMS', 'ACCOUNT') );
 $main_conn = new mysqli('localhost', 'root', '', 'test');
 
+$__WEBSITES_CHILDREN = '_websites_children';
+$__WEBSITES = '_websites';
+$__ACCOUNTS = '_accounts';
+$__SALES = '_sales';
+$__RECLAIMS = '_reclaims';
+$__MESSAGES = '_messages';
+// $__ = '';
 
 function getScreensCollection(mysqli $conn, string $site_code) : array {
-    $q = "SELECT `CHILDREN` FROM `_WEBSITES_CHILDREN` WHERE `SITE_CODE` = '$site_code'";
+    global $__WEBSITES_CHILDREN;
+    $q = "SELECT `CHILDREN` FROM `$__WEBSITES_CHILDREN` WHERE `SITE_CODE` = '$site_code'";
     $result = $conn->query($q);
 
     while($record = $result->fetch_assoc()) {
