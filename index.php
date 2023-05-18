@@ -84,9 +84,9 @@ $websites_listing = $main_conn->query($websites_listing_query);
             <div class="carrousel__pictures">
                 <?php for($i = 1; $i <= 3; $i++): ?>
                 <figure>
-                    <img src="<?php echo "../fappu_admin/assets/thumbs/" . strtolower($website['SITE_CODE']) . "/blur/" . $website['SITE_TITLE'] . "_$i.jpg"; ?>" 
+                    <img src="<?php echo "../fappu_admin/assets/thumbs/" . $website['SITE_CODE'] . "/blur/" . strtolower($website['SITE_TITLE']) . "_$i.jpg"; ?>" 
                     alt="<?php echo $website['SITE_TITLE'] . " Promotional Picture #$i" ?>" draggable="false" 
-                    data-display="<?php echo "../fappu_admin/assets/thumbs/" . strtolower($website['SITE_CODE']) . "/" . $website['SITE_TITLE'] . "_$i.jpg"; ?>">
+                    data-display="<?php echo "../fappu_admin/assets/thumbs/" . $website['SITE_CODE'] . "/" . strtolower($website['SITE_TITLE']) . "_$i.jpg"; ?>">
                 </figure>
                 <?php endfor; ?>
             </div>
