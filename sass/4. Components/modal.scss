@@ -32,7 +32,11 @@
     align-items: center;
 
     width: 900px;
+    max-width: 90vw;  
     height: 530px;
+    max-height: 80vh;
+
+    overflow: scroll;
 
     background-repeat: no-repeat;
     background-position: center center;
@@ -130,3 +134,42 @@
 }
 
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 750px) {
+    .modal .modal__content .content__heading {
+        font-size: 32px;
+    }
+
+    .modal .modal__content button {
+        font-size: 22px;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .modal .modal__content .content__heading {
+        font-size: 30px;
+    }
+
+    .modal .modal__content {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+
+        .content__heading {
+            margin-top: 50px;
+        }
+
+
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .modal .modal__content .content__note {
+        font-size: 18px;
+    }
+}
