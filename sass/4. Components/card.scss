@@ -4,8 +4,10 @@
     position: relative;
 
     display: flex;
-    width: 1140px;
-    height: 510px;
+    // width: 1140px;
+    width: calc(85vw);
+    // height: 510px;
+    height: calc(38vw);
     margin: 0 auto 75px auto;
 
     background-color: $mega-white;
@@ -20,8 +22,9 @@
 
 .card .card__carrousel {
     position: relative;
-    left: 0;
-    width: 540px;
+    // left: 0;
+    // width: 540px;
+    width: $card-carrousel-width;
     height: 100%;
 
     overflow: hidden;
@@ -59,7 +62,7 @@
 
     .carrousel__pictures {
         position: relative;
-        width: 540px;
+        width: $card-carrousel-width;
         height: 100%;
 
         transition: transform 150ms ease-in-out;
@@ -268,11 +271,13 @@
 
 .card .card__subsites {
     position: absolute; 
-    right: -55%;
-    // transform: translateX(-55%);
+    right: 0;
+
     display: flex;
-    width: 600px;
+    width: $card-carrousel-width;
     height: 100%;
+
+    transform: translateX(100%);
 
     overflow: hidden;
     user-select: none;
@@ -302,6 +307,8 @@
         font-weight: bold;
         letter-spacing: 0.1em;
         text-shadow: 0 0 4px black;
+        text-align: center;
+        white-space: nowrap;
 
         background-color: rgba($mega-white, 0.25);
         backdrop-filter: blur(6px);
@@ -354,7 +361,8 @@
                 left: 50%;
                 z-index: 5;
 
-                width: 205px;
+                // width: 205px;
+                width: 65%;
 
                 transform: rotate(8deg) translateX(-50%);
                 -webkit-transform: rotate(8deg) translateX(-50%);
@@ -393,10 +401,10 @@ Modifiers of Card component.
         transform: translateX(-15%);
     }
     .card__content {
-        transform: translateX(-95%);
+        transform: translateX(-$card-carrousel-width);
     }
     .card__subsites {
-        transform: translateX(-100%);
+        transform: translateX(0%);
     }
 }
 
@@ -405,5 +413,322 @@ Modifiers of Card component.
 
     .content__buybutton.disabled {
         opacity: 0.25;
+    }
+}
+
+
+
+/* =========================
+## RESPONSIVE WEB DESIGN ###
+============================ */
+
+
+@media screen and (max-width: 1280px) {
+    .card .card__subsites .subsites__screens .subsites__screen {
+        width: 280px;
+
+        // .subsite__logo {
+        //     width: ;
+        // }
+    }
+}
+
+
+@media screen and (max-width: 1080px) {
+
+    .card .card__content .content__header .content__sitecode {
+        font-size: 48px;
+    }
+
+    .card .card__content .content__price--emphazised {
+        .content__subtitle {
+            font-size: 24px;
+        }
+
+        .content__montlyprice {
+            font-size: 36px;
+        }
+    }
+
+    .card .card__content button {
+        font-size: 30px;
+    }
+
+    .card .card__subsites .subsites__screens .subsites__screen .subsite__logo {
+        width: 45%;
+    }
+}
+
+
+@media screen and (max-width: 980px) {
+
+    .card .card__content .content__price {
+        .content__subtitle {
+            font-size: 18px;
+        }
+
+        .content__montlyprice {
+            font-size: 28px;
+        }
+    }
+
+    .card .card__content .content__price--emphazised {
+        .content__subtitle {
+            font-size: 20px;
+        }
+    }
+
+    .card .card__subsites .subsites__subtitle {
+        font-size: 16px;
+    }
+
+    .card .card__subsites .subsites__screens .subsites__screen {
+        width: 230px;
+    }
+
+    .card .card__content .content__buybutton {
+        // font-size: 25px;
+        margin-top: 20px;
+    }
+
+    .card .card__content .content__price--emphazised {
+        .content__subtitle {
+            margin-bottom: 15px;
+        }
+
+        .content__montlyprice {
+            font-size: 36px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .card .card__content .content__sitecode {
+        font-size: 44px;
+    }
+
+    .card .card__content .content__price {
+        .content__subtitle {
+            margin-bottom: 10px;
+        }
+
+        &:last-child {
+            background-color: red;
+        }
+    }
+
+    .card .card__content .content__price--emphazised {
+        margin-top: 10px;
+        .content__montlyprice {
+            font-size: 34px;
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 840px) {
+    .card .card__content .content__header .content__sitecode {
+        font-size: 40px;
+    }
+
+    .card .card__content .content__buybutton {
+        font-size: 25px;
+
+        margin-top: 10px;
+        border-radius: 12px;
+    }
+
+    .card .card__subsites .subsites__subtitle {
+        top: 15px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .card .card__carrousel .carrousel__controls {
+        bottom: 15px;
+
+        .carrousel__control {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .card .card__content {
+        padding: 5px 0 0 0;
+    }
+
+    .card .card__content .content__header .content__sitecode {
+        font-size: 36px;
+    }
+
+    .card .card__content .content__price .content__montlyprice {
+        font-size: 28px;
+    }
+
+    .card .card__content .content__price--emphazised .content__montlyprice {
+        font-size: 30px;
+    }
+
+    .card .card__content .content__slidders .content__slidder {
+        height: 10px;
+    }
+
+    .card .card__subsites .subsites__screens .subsites__screen {
+        width: 200px;
+    }
+    
+    .card .card__subsites .subsites__subtitle {
+        top: 15px;
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+
+    .card .card__content .content__header {
+        padding-bottom: 0;
+
+        .content__link {
+            bottom: -30px !important;
+        }
+    }
+
+    .card .card__content .content__price {
+        .content__subtitle {
+            font-size: 16px;
+        }
+        
+        .content__montlyprice {
+        font-size: 24px;
+        }
+    }
+
+    .card .card__content .content__price--emphazised {
+        .content__subtitle {
+            font-size: 18px;
+        }
+        
+        .content__montlyprice {
+        font-size: 26px;
+        }
+    }
+
+    .card .card__content .content__buybutton {
+        font-size: 20px;
+    }
+}
+
+
+@media screen and (max-width: 680px) {
+    .card {
+        flex-direction: column;
+        height: auto;
+
+        .card__status {
+            width: 100%;
+            height: 5px;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
+    .card .card__carrousel {
+        height: 250px;
+        width: 100%;
+
+        .carrousel__pictures {
+            width: 100%;
+
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+
+    .card .card__content .content__header .content__link {
+        bottom: -20px !important;
+    }
+
+    .card .card__content .content__header .content__sitecode {
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+    }
+
+    .card .card__content .content__price {
+        .content__subtitle {
+            font-size: 18px;
+        }
+    }
+
+    .card .card__content .content__price--emphazised {
+        .content__subtitle {
+            font-size: 20px;
+        }
+
+        .content__montlyprice {
+            font-size: 30px;
+        }
+    }
+
+    .card .card__content .content__buybutton {
+        font-size: 24px;
+        margin: 15px 0;
+    }
+
+    .card .card__subsites {
+        width: 100%;
+        height: 250px;
+        top: 0;
+        right: unset;
+        left: 0;
+
+        .subsites__subtitle {
+            top: 20px;
+            font-size: 16px;
+            padding: 10px 16px;
+        }
+    }
+
+    .card .card__subsites .subsites__screens .subsites__screen {
+        width: 175px;
+    }
+
+    .card--second-phase {
+        .card__content {
+            transform: translateX(0);
+        } 
+        .card__subsites {
+            transform: translateX(0);
+        }
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .card .card__content .content__price {
+        
+        .content__subtitle {
+            font-size: 16px;
+        }
+        
+        .content__montlyprice {
+            font-size: 20px;
+        }
+    }
+    .card .card__content .content__price--emphazised {
+        margin-top: 15px;
+
+        .content__subtitle {
+            font-size: 18px;
+        }
+        
+        .content__montlyprice {
+            font-size: 26px;
+        }
     }
 }

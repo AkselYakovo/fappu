@@ -1,5 +1,5 @@
 .card__loader {
-    width: 450px;
+    width: 60%;
     margin: 0 auto;
     padding: 10px 0;
     border: 5px solid $alternative-gray;
@@ -18,4 +18,25 @@
 
 .card__loader.hidden {
     opacity: 0;
+}
+
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 600px) {
+    .card__loader {
+        width: 75%;
+        font-size: 32px;
+        border-width: 3px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .card__loader {
+        width: 85%;
+        font-size: 30px;
+    }
 }

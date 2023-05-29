@@ -11,12 +11,14 @@
     .footer__questions {
         width: 356px;
         height: 225px;
+        flex-shrink: 2;
         padding-right: 10px; 
         overflow: auto;
         // background-color: $mega-white;
     }
     .footer__links {
         height: 150px;
+        flex-shrink: 0;
         .link{
             margin-bottom: 27px;
             font-family: 'Work Sans Regular', Tahoma, Verdana, sans-serif;
@@ -53,5 +55,66 @@
         // b {
         //     font-weight: bold;
         // }
+    }
+}
+
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 900px) {
+    .footer {
+        padding-left: 50px;
+        padding-right: 100px;
+    }
+}
+
+
+@media screen and (max-width: 750px) {
+    .footer {
+        padding-right: 50px;
+    }
+}
+
+
+@media screen and (max-width: 680px) {
+    .footer {
+        padding-left: 30px;
+
+        .footer__links {
+            padding-left: 30px;
+            // text-align: right;
+        }
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    .footer {
+        padding-right: 30px;
+
+        .footer__links {
+            padding-left: 30px;
+            // text-align: right;
+        }
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .footer {
+        flex-direction: column;
+        padding-top: 30px;
+
+        .footer__questions {
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .footer__links {
+            padding-left: 0px;
+            text-align: center;
+        }
     }
 }
