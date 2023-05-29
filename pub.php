@@ -13,7 +13,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__RECLAIM']) && isset($_POST['__ID'
     
     // Check If Sale Data Exists..
     $exists = $main_conn->query("SELECT * 
-                                 FROM _SALES
+                                 FROM `$__SALES`
                                  WHERE `USER_EMAIL` = '$email' AND `SALE_ID` = '$sale_id'");
     
     if ( $exists && $exists->fetch_row()[0] ) {
@@ -21,7 +21,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__RECLAIM']) && isset($_POST['__ID'
     }
 
     if ( $record_exists ) {
-        $exists_reclaim_query = "SELECT COUNT(*) FROM _RECLAIMS WHERE `USER_EMAIL` = '$email' AND `ORDER_ID` = '$sale_id'";
+        $exists_reclaim_query = "SELECT COUNT(*) FROM `$__RECLAIMS` WHERE `USER_EMAIL` = '$email' AND `ORDER_ID` = '$sale_id'";
         $exists_reclaim = $main_conn->query($exists_reclaim_query);
 
         if ( $exists_reclaim && $exists_reclaim->fetch_row()[0] ) {
@@ -31,7 +31,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__RECLAIM']) && isset($_POST['__ID'
         if ( $reclaim_exists ) {
             $today = date('Y-m-d');
 
-            $diff_date_query = "SELECT `DATE` FROM _RECLAIMS WHERE `ORDER_ID` = '$sale_id' ORDER BY `DATE` DESC LIMIT 1";
+            $diff_date_query = "SELECT `DATE` FROM `$__RECLAIMS` WHERE `ORDER_ID` = '$sale_id' ORDER BY `DATE` DESC LIMIT 1";
             $results = $main_conn->query($diff_date_query);
             $results = $results->fetch_array();
 
@@ -49,11 +49,11 @@ if ( isset($_POST['__PUT']) && isset($_POST['__RECLAIM']) && isset($_POST['__ID'
 
         elseif ( !$reclaim_exists ) {
             $new_reclaim_id = getReclaimID();
-            $info = $main_conn->query(" SELECT * FROM _SALES WHERE `SALE_ID` = '$sale_id'");
+            $info = $main_conn->query(" SELECT * FROM `$__SALES` WHERE `SALE_ID` = '$sale_id'");
             $info = $info->fetch_array();
             $account_id = $info['ACCOUNT_ID'];
             $date = date('Y-m-d');
-            $new_reclaim_query = "INSERT INTO _RECLAIMS VALUES ('$new_reclaim_id', '$email', '$account_id', '$sale_id', '$date', 0)";
+            $new_reclaim_query = "INSERT INTO `$__RECLAIMS` VALUES ('$new_reclaim_id', '$email', '$account_id', '$sale_id', '$date', 0)";
             $new_reclaim = $main_conn->query($new_reclaim_query);
 
             // if ($new_reclaim)
@@ -64,12 +64,12 @@ if ( isset($_POST['__PUT']) && isset($_POST['__RECLAIM']) && isset($_POST['__ID'
 
         if ( $is_not_recent ) {
             $new_reclaim_id = getReclaimID();
-            $info = $main_conn->query("SELECT * FROM _SALES WHERE `SALE_ID` = '$sale_id'");
+            $info = $main_conn->query("SELECT * FROM `$__SALES` WHERE `SALE_ID` = '$sale_id'");
             $info = $info->fetch_array();
             $sitecode = $info['SITE_CODE'];
             $account_id = $info['ACCOUNT_ID'];
             $date = date('Y-m-d');
-            $new_reclaim_query = "INSERT INTO _RECLAIMS VALUES ('$new_reclaim_id', '$email', '$account_id', '$sale_id', '$date', 0)";
+            $new_reclaim_query = "INSERT INTO `$__RECLAIMS` VALUES ('$new_reclaim_id', '$email', '$account_id', '$sale_id', '$date', 0)";
             $new_reclaim = $main_conn->query($new_reclaim_query);
 
             // if ($new_reclaim)
@@ -98,7 +98,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__MESSAGE']) ) {
 
     // Check If Sale Data Exists..
     $exists = $main_conn->query("SELECT * 
-                                 FROM _SALES
+                                 FROM `$__SALES`
                                  WHERE `USER_EMAIL` = '$email'");
     
     if ( $exists && $exists->fetch_row()[0] ) 
@@ -106,7 +106,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__MESSAGE']) ) {
         $sale_exists = true;
     }
 
-    $results = $main_conn->query(" SELECT * FROM _MESSAGES 
+    $results = $main_conn->query(" SELECT * FROM `$__MESSAGES` 
                                    WHERE `USER_EMAIL` = '$email' AND `DATE` = '$today' ");
 
     if ( !$results->fetch_row() ) {
@@ -119,7 +119,7 @@ if ( isset($_POST['__PUT']) && isset($_POST['__MESSAGE']) ) {
 
 
     if ( $sale_exists && $on_diff_day ) {
-        $new_message_query = "INSERT INTO _MESSAGES 
+        $new_message_query = "INSERT INTO `$__MESSAGES` 
                               VALUES(NULL, '$today', '$email', '$message', '$cat')";
     
         $main_conn->query($new_message_query);
@@ -143,8 +143,8 @@ if ( isset($_POST['__PULL']) && isset($_POST['__CARD']) && isset($_POST['__QUERY
     $new_query = "SELECT W.`SITE_CODE` AS `SITE_CODE`, W.`SITE_TITLE` AS `SITE_TITLE`, W.`SITE_URL` AS `SITE_URL`,
                   W.`ORIGINAL_PRICE` AS `ORIGINAL_PRICE`, W.`OFFER_PRICE` AS `OFFER_PRICE`,
                   CHILD.`CHILDREN` AS `CHILDREN`
-                  FROM _WEBSITES W
-                  INNER JOIN _WEBSITES_CHILDREN CHILD
+                  FROM `$__WEBSITES` W
+                  INNER JOIN `$__WEBSITES_CHILDREN` CHILD
                   ON W.`SITE_CODE` = CHILD.`SITE_CODE`
                   WHERE W.`SITE_CODE` LIKE '%$q%'";
 

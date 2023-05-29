@@ -48,7 +48,7 @@ header.header {
         letter-spacing: 0.05em;
     }
     .header__shadow {
-        width: 668px;
+        width: 100%;
         height: 69px;
         margin: 0 auto;
         background: radial-gradient(50% 50% at 50% 50%, #727272 0%, rgba(168, 168, 168, 0) 100%);
@@ -67,3 +67,66 @@ header.header {
     .header__shadow { display: none; }
 }
 
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 960px) {
+    header.header .header__title {
+        font-size: 60px;
+    }
+
+    header.header .header__subtitle {
+        font-size: 32px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    header.header {
+        width: 65vw;
+    }
+}
+
+
+@media screen and (max-width: 680px) {
+    header.header {
+        width: 80vw;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+    header.header .header__title {
+        font-size: 56px;
+    }
+
+    header.header .header__subtitle {
+        font-size: 28px;
+    }
+
+    header.header .header__separator .dot {
+        width: 24px;
+        height: 24px;
+    }
+
+    header.header .header__terms {
+        font-size: 14px;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    header.header {
+        width: 90vw;
+    }
+
+    header.header .header__title {
+        font-size: 48px;
+    }
+
+    header.header .header__subtitle {
+        font-size: 26px;
+    }
+}

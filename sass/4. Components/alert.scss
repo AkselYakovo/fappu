@@ -10,10 +10,13 @@
     align-items: center;
 
     width: auto;
+    max-width: 90%;
     margin: 0 auto 25px auto;
     padding: 20px;
 
     background-color: $main-color;
+
+    box-sizing: border-box;
 
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
@@ -56,4 +59,43 @@
     }
     .alert__title { color: inherit; }
     .alert__text { color: inherit; }
+}
+
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 680px) {
+    .alert {
+        padding: 15px;
+    }
+
+    .alert .alert__title {
+        font-size: 18px;
+    }
+
+    .alert .alert__ico {
+        width: 20px;
+        height: 20px;
+    }
+
+    .alert .alert__text {
+        font-size: 18px;
+    }
+}
+
+
+@media screen and (max-width: 420px) {
+    .alert {
+        flex-direction: column;
+
+        .alert__ico {
+            display: none;
+        }
+
+        .alert__title {
+            margin-bottom: 10px;
+        }
+    }
 }

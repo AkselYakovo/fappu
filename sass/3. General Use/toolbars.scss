@@ -48,3 +48,33 @@
         color: $main-color;
     }
 }
+
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+
+@media screen and (max-width: 600px) {
+    .toolbar__search {
+        width: 85vw;
+        font-size: 30px;
+        
+        .toolbar__icon {
+            width: 30px;
+            height: 30px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 430px) {
+    .toolbar__search {
+        font-size: 30px;
+    
+        .toolbar__input {
+            padding-top: 16px;
+            padding-bottom: 16px; 
+        }
+    }
+}
