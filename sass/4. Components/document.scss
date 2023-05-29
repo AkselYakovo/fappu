@@ -1,13 +1,15 @@
 .document-card {
     @include article-unfocused;
 
-    width: 1050px;
+    width: 85%;
     margin: 25px auto 150px auto;
     padding: 50px;
 
     text-transform: uppercase;
     background-color: $mega-white;
     color: $mega-black;
+
+    box-sizing: border-box;
     
     .document__heading,
     .document__legalheading,
@@ -80,5 +82,117 @@
     button { 
         display: block;
         margin: auto;
+    }
+}
+
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+
+@media screen and (max-width: 900px) {
+    .document-card {
+        padding: 50px 25px;
+
+        .document__heading {
+            font-size: 48px;
+        }
+
+        form .row {
+            width: 100%;
+            justify-content: center;
+
+            label {
+                margin-right: 25px;
+                width: 100px;
+            }
+        }
+
+        .document__legalheading {
+            font-size: 32px;
+        }
+
+        .document__legalterm {
+            font-size: 18px;
+            line-height: 150%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 735px) {
+
+    .document-card .document__heading {
+        font-size: 44px;
+    }
+
+    .document-card form .row {
+        flex-direction: column;
+
+        label {
+            margin-right: 0;
+            margin-bottom: 10px;
+            width: unset;
+            max-width: unset;
+        }
+
+        label[for="email__option"] {
+            font-size: 16px;
+        }
+
+        span.checkbox-figure {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .document-card form .row-single {
+        flex-direction: row;
+
+        label {
+            margin-bottom: 0;
+        }
+    }
+
+    .document-card .document__legalheading {
+        font-size: 30px;
+    }
+
+    .document-card .document__legalterm {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 630px) {
+    .document-card {
+        width: 90vw;
+    }
+
+    .document-card form button {
+        font-size: 20px;
+        padding: 8px 12px;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+    .document-card {
+
+        .document__heading  { 
+            font-size: 36px;
+        }
+
+        form .row .form-input {
+            font-size: 24px;
+        }
+
+        form .row-single .checkbox-figure {
+            margin-left: 0;
+        }
+
+        .document__legalterm {
+            font-size: 14px;
+        }
     }
 }
