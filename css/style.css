@@ -233,7 +233,7 @@ header.header .header__terms {
   letter-spacing: 0.05em;
 }
 header.header .header__shadow {
-  width: 668px;
+  width: 100%;
   height: 69px;
   margin: 0 auto;
   background: radial-gradient(50% 50% at 50% 50%, #727272 0%, rgba(168, 168, 168, 0) 100%);
@@ -257,6 +257,53 @@ header.header .header__shadow {
   display: none;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 960px) {
+  header.header .header__title {
+    font-size: 60px;
+  }
+  header.header .header__subtitle {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 900px) {
+  header.header {
+    width: 65vw;
+  }
+}
+@media screen and (max-width: 680px) {
+  header.header {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 580px) {
+  header.header .header__title {
+    font-size: 56px;
+  }
+  header.header .header__subtitle {
+    font-size: 28px;
+  }
+  header.header .header__separator .dot {
+    width: 24px;
+    height: 24px;
+  }
+  header.header .header__terms {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 420px) {
+  header.header {
+    width: 90vw;
+  }
+  header.header .header__title {
+    font-size: 48px;
+  }
+  header.header .header__subtitle {
+    font-size: 26px;
+  }
+}
 .footer {
   display: flex;
   justify-content: space-between;
@@ -270,11 +317,13 @@ header.header .header__shadow {
 .footer .footer__questions {
   width: 356px;
   height: 225px;
+  flex-shrink: 2;
   padding-right: 10px;
   overflow: auto;
 }
 .footer .footer__links {
   height: 150px;
+  flex-shrink: 0;
 }
 .footer .footer__links .link {
   margin-bottom: 27px;
@@ -308,8 +357,52 @@ header.header .header__shadow {
   padding-left: 10px;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 900px) {
+  .footer {
+    padding-left: 50px;
+    padding-right: 100px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer {
+    padding-right: 50px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .footer {
+    padding-left: 30px;
+  }
+  .footer .footer__links {
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .footer {
+    padding-right: 30px;
+  }
+  .footer .footer__links {
+    padding-left: 30px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footer {
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  .footer .footer__questions {
+    width: 100%;
+    padding-right: 0;
+  }
+  .footer .footer__links {
+    padding-left: 0px;
+    text-align: center;
+  }
+}
 button {
-  padding: 10px 20px;
+  padding: 0.275em 0.55em;
   border-style: solid;
   border-width: 1px;
   border-color: #B208FA;
@@ -415,6 +508,7 @@ textarea {
   height: 300px;
   min-width: 275px;
   min-height: 150px;
+  max-width: 90%;
   padding: 20px;
   border: 0.75px solid #E3E3E3;
   border-radius: 30px;
@@ -451,7 +545,7 @@ form label {
 /*** CLASSES ***/
 /***         ***/
 input.form-input {
-  width: 335px;
+  width: min(80vw, 335px);
   padding: 15px 10px;
   border: 0.75px solid #E3E3E3;
   border-radius: 50px;
@@ -463,6 +557,7 @@ input.form-input {
 }
 
 input.white-input {
+  max-width: 300px;
   font-family: "Roboto Condensed Light", Helvetica, Arial, Tahoma, Verdana, sans-serif;
   font-size: 24px;
   text-align: center;
@@ -527,6 +622,7 @@ input.white-input:focus {
   left: 0;
   z-index: 4;
   width: 335px;
+  max-width: 100%;
   padding: 70px 20px 25px 20px;
   border: 0.75px solid #E3E3E3;
   border-radius: 30px;
@@ -615,16 +711,39 @@ input.white-input:focus {
   color: #B208FA;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 600px) {
+  .toolbar__search {
+    width: 85vw;
+    font-size: 30px;
+  }
+  .toolbar__search .toolbar__icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .toolbar__search {
+    font-size: 30px;
+  }
+  .toolbar__search .toolbar__input {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
 .document-card {
   box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
   -webkit-box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
-  width: 1050px;
+  width: 85%;
   margin: 25px auto 150px auto;
   padding: 50px;
   text-transform: uppercase;
   background-color: #FFF;
   color: #000;
+  box-sizing: border-box;
 }
 .document-card .document__heading,
 .document-card .document__legalheading,
@@ -691,14 +810,96 @@ input.white-input:focus {
   margin: auto;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 900px) {
+  .document-card {
+    padding: 50px 25px;
+  }
+  .document-card .document__heading {
+    font-size: 48px;
+  }
+  .document-card form .row {
+    width: 100%;
+    justify-content: center;
+  }
+  .document-card form .row label {
+    margin-right: 25px;
+    width: 100px;
+  }
+  .document-card .document__legalheading {
+    font-size: 32px;
+  }
+  .document-card .document__legalterm {
+    font-size: 18px;
+    line-height: 150%;
+  }
+}
+@media screen and (max-width: 735px) {
+  .document-card .document__heading {
+    font-size: 44px;
+  }
+  .document-card form .row {
+    flex-direction: column;
+  }
+  .document-card form .row label {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: unset;
+    max-width: unset;
+  }
+  .document-card form .row label[for=email__option] {
+    font-size: 16px;
+  }
+  .document-card form .row span.checkbox-figure {
+    width: 20px;
+    height: 20px;
+  }
+  .document-card form .row-single {
+    flex-direction: row;
+  }
+  .document-card form .row-single label {
+    margin-bottom: 0;
+  }
+  .document-card .document__legalheading {
+    font-size: 30px;
+  }
+  .document-card .document__legalterm {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .document-card {
+    width: 90vw;
+  }
+  .document-card form button {
+    font-size: 20px;
+    padding: 8px 12px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .document-card .document__heading {
+    font-size: 36px;
+  }
+  .document-card form .row .form-input {
+    font-size: 24px;
+  }
+  .document-card form .row-single .checkbox-figure {
+    margin-left: 0;
+  }
+  .document-card .document__legalterm {
+    font-size: 14px;
+  }
+}
 .card {
   box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
   -webkit-box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 4px 35px 5px rgba(0, 0, 0, 0.08);
   position: relative;
   display: flex;
-  width: 1140px;
-  height: 510px;
+  width: 85vw;
+  height: 38vw;
   margin: 0 auto 75px auto;
   background-color: #FFF;
   overflow: hidden;
@@ -710,8 +911,7 @@ input.white-input:focus {
 
 .card .card__carrousel {
   position: relative;
-  left: 0;
-  width: 540px;
+  width: 38vw;
   height: 100%;
   overflow: hidden;
   user-select: none;
@@ -744,7 +944,7 @@ input.white-input:focus {
 }
 .card .card__carrousel .carrousel__pictures {
   position: relative;
-  width: 540px;
+  width: 38vw;
   height: 100%;
   transition: transform 150ms ease-in-out;
 }
@@ -911,10 +1111,11 @@ input.white-input:focus {
 
 .card .card__subsites {
   position: absolute;
-  right: -55%;
+  right: 0;
   display: flex;
-  width: 600px;
+  width: 38vw;
   height: 100%;
+  transform: translateX(100%);
   overflow: hidden;
   user-select: none;
   transition: transform 800ms ease-in-out;
@@ -935,6 +1136,8 @@ input.white-input:focus {
   font-weight: bold;
   letter-spacing: 0.1em;
   text-shadow: 0 0 4px black;
+  text-align: center;
+  white-space: nowrap;
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -975,7 +1178,7 @@ input.white-input:focus {
   bottom: 10px;
   left: 50%;
   z-index: 5;
-  width: 205px;
+  width: 65%;
   transform: rotate(8deg) translateX(-50%);
   -webkit-transform: rotate(8deg) translateX(-50%);
   -moz-transform: rotate(8deg) translateX(-50%);
@@ -1002,10 +1205,10 @@ Modifiers of Card component.
   transform: translateX(-15%);
 }
 .card--second-phase .card__content {
-  transform: translateX(-95%);
+  transform: translateX(-38vw);
 }
 .card--second-phase .card__subsites {
-  transform: translateX(-100%);
+  transform: translateX(0%);
 }
 
 .card--unavailable .card__status {
@@ -1015,6 +1218,222 @@ Modifiers of Card component.
   opacity: 0.25;
 }
 
+/* =========================
+## RESPONSIVE WEB DESIGN ###
+============================ */
+@media screen and (max-width: 1280px) {
+  .card .card__subsites .subsites__screens .subsites__screen {
+    width: 280px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  .card .card__content .content__header .content__sitecode {
+    font-size: 48px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    font-size: 24px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 36px;
+  }
+  .card .card__content button {
+    font-size: 30px;
+  }
+  .card .card__subsites .subsites__screens .subsites__screen .subsite__logo {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 980px) {
+  .card .card__content .content__price .content__subtitle {
+    font-size: 18px;
+  }
+  .card .card__content .content__price .content__montlyprice {
+    font-size: 28px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    font-size: 20px;
+  }
+  .card .card__subsites .subsites__subtitle {
+    font-size: 16px;
+  }
+  .card .card__subsites .subsites__screens .subsites__screen {
+    width: 230px;
+  }
+  .card .card__content .content__buybutton {
+    margin-top: 20px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    margin-bottom: 15px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 36px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .card .card__content .content__sitecode {
+    font-size: 44px;
+  }
+  .card .card__content .content__price .content__subtitle {
+    margin-bottom: 10px;
+  }
+  .card .card__content .content__price:last-child {
+    background-color: red;
+  }
+  .card .card__content .content__price--emphazised {
+    margin-top: 10px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 34px;
+  }
+}
+@media screen and (max-width: 840px) {
+  .card .card__content .content__header .content__sitecode {
+    font-size: 40px;
+  }
+  .card .card__content .content__buybutton {
+    font-size: 25px;
+    margin-top: 10px;
+    border-radius: 12px;
+  }
+  .card .card__subsites .subsites__subtitle {
+    top: 15px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .card .card__carrousel .carrousel__controls {
+    bottom: 15px;
+  }
+  .card .card__carrousel .carrousel__controls .carrousel__control {
+    width: 20px;
+    height: 20px;
+  }
+  .card .card__content {
+    padding: 5px 0 0 0;
+  }
+  .card .card__content .content__header .content__sitecode {
+    font-size: 36px;
+  }
+  .card .card__content .content__price .content__montlyprice {
+    font-size: 28px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 30px;
+  }
+  .card .card__content .content__slidders .content__slidder {
+    height: 10px;
+  }
+  .card .card__subsites .subsites__screens .subsites__screen {
+    width: 200px;
+  }
+  .card .card__subsites .subsites__subtitle {
+    top: 15px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .card .card__content .content__header {
+    padding-bottom: 0;
+  }
+  .card .card__content .content__header .content__link {
+    bottom: -30px !important;
+  }
+  .card .card__content .content__price .content__subtitle {
+    font-size: 16px;
+  }
+  .card .card__content .content__price .content__montlyprice {
+    font-size: 24px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    font-size: 18px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 26px;
+  }
+  .card .card__content .content__buybutton {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+  }
+  .card .card__status {
+    width: 100%;
+    height: 5px;
+    bottom: 0;
+    left: 0;
+  }
+  .card .card__carrousel {
+    height: 250px;
+    width: 100%;
+  }
+  .card .card__carrousel .carrousel__pictures {
+    width: 100%;
+  }
+  .card .card__carrousel .carrousel__pictures img {
+    object-fit: contain;
+  }
+  .card .card__content .content__header .content__link {
+    bottom: -20px !important;
+  }
+  .card .card__content .content__header .content__sitecode {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  .card .card__content .content__price .content__subtitle {
+    font-size: 18px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    font-size: 20px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 30px;
+  }
+  .card .card__content .content__buybutton {
+    font-size: 24px;
+    margin: 15px 0;
+  }
+  .card .card__subsites {
+    width: 100%;
+    height: 250px;
+    top: 0;
+    right: unset;
+    left: 0;
+  }
+  .card .card__subsites .subsites__subtitle {
+    top: 20px;
+    font-size: 16px;
+    padding: 10px 16px;
+  }
+  .card .card__subsites .subsites__screens .subsites__screen {
+    width: 175px;
+  }
+  .card--second-phase .card__content {
+    transform: translateX(0);
+  }
+  .card--second-phase .card__subsites {
+    transform: translateX(0);
+  }
+}
+@media screen and (max-width: 420px) {
+  .card .card__content .content__price .content__subtitle {
+    font-size: 16px;
+  }
+  .card .card__content .content__price .content__montlyprice {
+    font-size: 20px;
+  }
+  .card .card__content .content__price--emphazised {
+    margin-top: 15px;
+  }
+  .card .card__content .content__price--emphazised .content__subtitle {
+    font-size: 18px;
+  }
+  .card .card__content .content__price--emphazised .content__montlyprice {
+    font-size: 26px;
+  }
+}
 #modal-overlay {
   visibility: hidden;
   position: fixed;
@@ -1042,7 +1461,10 @@ Modifiers of Card component.
   justify-content: center;
   align-items: center;
   width: 900px;
+  max-width: 90vw;
   height: 530px;
+  max-height: 80vh;
+  overflow: scroll;
   background-repeat: no-repeat;
   background-position: center center;
   background-clip: border-box;
@@ -1120,8 +1542,37 @@ Modifiers of Card component.
   animation-timing-function: ease-out;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 750px) {
+  .modal .modal__content .content__heading {
+    font-size: 32px;
+  }
+  .modal .modal__content button {
+    font-size: 22px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .modal .modal__content .content__heading {
+    font-size: 30px;
+  }
+  .modal .modal__content {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  .modal .modal__content .content__heading {
+    margin-top: 50px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .modal .modal__content .content__note {
+    font-size: 18px;
+  }
+}
 .card__loader {
-  width: 450px;
+  width: 60%;
   margin: 0 auto;
   padding: 10px 0;
   border: 5px solid #E3E3E3;
@@ -1138,6 +1589,22 @@ Modifiers of Card component.
   opacity: 0;
 }
 
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 600px) {
+  .card__loader {
+    width: 75%;
+    font-size: 32px;
+    border-width: 3px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .card__loader {
+    width: 85%;
+    font-size: 30px;
+  }
+}
 .alert {
   box-shadow: 0px 2px 18px 2px rgba(0, 0, 0, 0.22);
   position: relative;
@@ -1147,9 +1614,11 @@ Modifiers of Card component.
   display: -ms-inline-flex;
   align-items: center;
   width: auto;
+  max-width: 90%;
   margin: 0 auto 25px auto;
   padding: 20px;
   background-color: #B208FA;
+  box-sizing: border-box;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -1196,6 +1665,36 @@ Modifiers of Card component.
 }
 .alert--error .alert__text {
   color: inherit;
+}
+
+/***************************/
+/** RESPONSIVE WEB DESIGN **/
+/***************************/
+@media screen and (max-width: 680px) {
+  .alert {
+    padding: 15px;
+  }
+  .alert .alert__title {
+    font-size: 18px;
+  }
+  .alert .alert__ico {
+    width: 20px;
+    height: 20px;
+  }
+  .alert .alert__text {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .alert {
+    flex-direction: column;
+  }
+  .alert .alert__ico {
+    display: none;
+  }
+  .alert .alert__title {
+    margin-bottom: 10px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
